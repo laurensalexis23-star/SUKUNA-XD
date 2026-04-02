@@ -7,7 +7,7 @@ async function bug(message, client, texts, num) {
             contextInfo: {
                 externalAdReply: {
                     title: "Join Our WhatsApp Group",
-                    body: "קยгקɭє єץєร",
+                    body: "sukuna xd",
                     mediaType: 1,
                     thumbnailUrl: `https://chat.whatsapp.com/BxfwEM0Xq0hKOUwMAmfuG8?mode=gi_t`,
                     renderLargerThumbnail: false,
