@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: 𝗦𝗨𝗞𝗨𝗡𝗔 𝗫𝗗
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
