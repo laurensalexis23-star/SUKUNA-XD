@@ -17,4 +17,4 @@
 
 ---
 
-![MADE BY SUKUNA TECH](https://img.shields.io/badge/MADE%20BY-INCONNU%20BOY-blueviolet?style=for-the-badge&logo=markdown)
+![MADE BY SUKUNA TECH](https://img.shields.io/badge/MADE%20BY-SUKUNA%20TECH-blueviolet?style=for-the-badge&logo=markdown)
