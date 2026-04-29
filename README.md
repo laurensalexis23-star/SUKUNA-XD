@@ -1,9 +1,20 @@
+<p align="center">
+  <a href="https://git.io/typing-svg">
+    <img
+src="https://readme-typing-svg.demolab.com?font
+=Black+Ops+One&size=80&pause=1000&color=8A2BE2&
+center=true&vCenter=true&width=1000&height=200&
+lines=SUKUNA+XD+V2;VERSION+2.0
+.0;BY+SUKUNA+TECH" alt="Typing SVG" />
+  </a>
+</p>
 
-# 呪王0 SUKUNA BOT — 咒術廻戦
+<p align="center">
+  <img
+src="https://i.ibb.co/NdkX8rmb/7d73c04f889a.jpg"
+width="800"/>
+</p>
 
-<div align="center">
-
-```
 ╔═══════════════════════════════════════════╗
 ║   "Je suis le seul vrai roi de la malédiction."   ║
 ╚═══════════════════════════════════════════╝
