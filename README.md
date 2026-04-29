@@ -18,3 +18,9 @@
 ---
 
 ![MADE BY SUKUNA TECH](https://img.shields.io/badge/MADE%20BY-SUKUNA%20TECH-blueviolet?style=for-the-badge&logo=markdown)
+
+
+![Version](https://img.shields.io/badge/version-1.0.0-crimson?style=for-the-badge)
+![Discord](https://img.shields.io/badge/Discord-Bot-7289DA?style=for-the-badge&logo=discord&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Status](https://img.shields.io/badge/status-DOMINATING-red?style=for-the-badge)
