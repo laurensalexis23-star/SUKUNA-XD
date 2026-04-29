@@ -11,3 +11,10 @@
 ## ⌛ WHATSAPP CHANNEL SUPPORT 
 
 [![SUKUNA TECH TECH](https://img.shields.io/badge/JOIN%20MY-WHATSAPP%20CHANNEL-25D366?style=for-the-badge&logo=whatsapp)](https://whatsapp.com/channel/0029Vb8VjhND8SE2LrqQW321)
+
+## ❤️ Credits
+[![GitHub - SUKUNA-TECH](https://img.shields.io/badge/GitHub-SUKUNA--TECH-181717?style=for-the-badge&logo=github)](https://github.com/laurensalexis23-star/SUKUNA-XD)
+
+---
+
+![MADE BY SUKUNA TECH](https://img.shields.io/badge/MADE%20BY-INCONNU%20BOY-blueviolet?style=for-the-badge&logo=markdown)
