@@ -261,8 +261,10 @@ async function helpCommand(sock, chatId, message, channelLink) {
 
     try {
         const imgPath = path.join(__dirname, '..', 'assets', 'bot_image.jpg');
+        const audioPath = path.join(__dirname, '..', 'assets', 'Rimkus.mp3');
         const img = fs.existsSync(imgPath) ? fs.readFileSync(imgPath) : null;
 
+        // 1. Envoyer l'image + texte du menu
         if (img) {
             await sock.sendMessage(
                 chatId,
@@ -276,6 +278,21 @@ async function helpCommand(sock, chatId, message, channelLink) {
                 { quoted: message }
             );
         }
+
+        // 2. Envoyer le MP3 style cercle orange sans titre
+        if (fs.existsSync(audioPath)) {
+            const audio = fs.readFileSync(audioPath);
+            await sock.sendMessage(
+                chatId,
+                {
+                    audio: audio,
+                    mimetype: 'audio/mp4',  // audio/mp4 = cercle orange sans nom affiché
+                    ptt: false
+                },
+                { quoted: message }
+            );
+        }
+
     } catch (e) {
         await sock.sendMessage(
             chatId,
