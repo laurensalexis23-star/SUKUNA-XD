@@ -90,6 +90,7 @@ async function helpCommand(sock, chatId, message, channelLink) {
 *│* ▹ ${prefix}delete
 *│* ▹ ${prefix}del
 *│* ▹ ${prefix}kick @user
+*│* ▹ ${prefix}kickall
 *│* ▹ ${prefix}warnings @user
 *│* ▹ ${prefix}warn @user
 *│* ▹ ${prefix}antilink
