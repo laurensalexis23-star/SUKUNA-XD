@@ -89,14 +89,14 @@ async function helpCommand(sock, chatId, message, channelLink) {
 *│* ▹ ${prefix}open
 *│* ▹ ${prefix}delete
 *│* ▹ ${prefix}del
-*│* ▹ ${prefix}kick @user
+*│* ▹ ${prefix}kick 
 *│* ▹ ${prefix}kickall
-*│* ▹ ${prefix}warnings @user
-*│* ▹ ${prefix}warn @user
+*│* ▹ ${prefix}warnings 
+*│* ▹ ${prefix}warn 
 *│* ▹ ${prefix}antilink
 *│* ▹ ${prefix}antibadword
 *│* ▹ ${prefix}clear
-*│* ▹ ${prefix}tag <message>
+*│* ▹ ${prefix}tag 
 *│* ▹ ${prefix}tagall
 *│* ▹ ${prefix}tagnotadmin
 *│* ▹ ${prefix}hidetag
