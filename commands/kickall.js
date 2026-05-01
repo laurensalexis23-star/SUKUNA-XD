@@ -78,7 +78,7 @@ async function kickallCommand(sock, chatId, senderId, message) {
 
         // 8. Message de fin
         await sock.sendMessage(chatId, {
-            text: `╭───❏ 𝗦𝗨𝗞𝗨𝗡𝗔 𝗫𝗗\n│ ✅ \`Kickall terminé\`\n│ ✔️ Expulsés : *${kicked}*\n│ ❌ Échecs : *${failed}*\n│ 👑 Admins gardés\n╰───❏\n›  • \`𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢 💻 𝗦𝗠𝗗\``,
+            text: `╭───❏ 𝗦𝗨𝗞𝗨𝗡𝗔 𝗫𝗗\n│ ✅ \`purge terminé\`\n│ ✔️ Expulsés : *${kicked}*\n│ ❌ Échecs : *${failed}*\n│ 👑 Admins gardés\n╰───❏\n›  • \`𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢 💻 𝗦𝗠𝗗\``,
             ...channelInfo
         }, { quoted: message });
 
