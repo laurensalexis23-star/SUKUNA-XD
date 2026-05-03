@@ -258,7 +258,7 @@ async function helpCommand(sock, chatId, message, channelLink) {
 *│* ▹ ${prefix}repo
 *╰──────────────────────────*
 
-> ⚡ 𝗣𝗢𝗪𝗘𝗥𝗘𝗗 𝗕𝗬 𝗦𝗨𝗞𝗨𝗡𝗔 𝗗𝗧𝗛 ⚡`;
+> ⚡ 𝗣𝗢𝗪𝗘𝗥𝗘𝗗 𝗕𝗬 𝗡𝗔𝗥𝗨𝗧𝗢 𝗢𝗠𝗕𝗕𝗥𝗘𝗦 ⚡`;
 
     try {
         const imgPath = path.join(__dirname, '..', 'assets', 'bot_image.jpg');
