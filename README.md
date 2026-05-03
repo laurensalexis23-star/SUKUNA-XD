@@ -24,3 +24,5 @@
 ![Discord](https://img.shields.io/badge/Discord-Bot-7289DA?style=for-the-badge&logo=discord&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Status](https://img.shields.io/badge/status-DOMINATING-red?style=for-the-badge)
+
+https://sukuna-xd--laurensalexis23.replit.app
