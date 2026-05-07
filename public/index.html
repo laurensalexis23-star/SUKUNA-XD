@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUKUNA XD 🩸 | Pair Code Generator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --red: #E8000D;
+      --red-dark: #9B0009;
+      --red-glow: rgba(232, 0, 13, 0.4);
+      --red-soft: rgba(232, 0, 13, 0.12);
+      --bg: #06040A;
+      --bg-card: rgba(14, 8, 18, 0.75);
+      --bg-elevated: rgba(22, 12, 28, 0.85);
+      --border: rgba(232, 0, 13, 0.25);
+      --border-dim: rgba(255, 255, 255, 0.06);
+      --text: #F5EEF8;
+      --text-dim: #9B8FA8;
+      --text-muted: #5A5065;
+      --gold: #D4AF37;
+      --gold-soft: rgba(212, 175, 55, 0.15);
+    }
+
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding: 0 0 80px;
+    }
+
+    .bg-layer {
+      position: fixed; inset: 0; z-index: -3;
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(150, 0, 8, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 80%, rgba(80, 0, 120, 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 50%, #0A050F 0%, #04020A 100%);
+    }
+
+    .grid-layer {
+      position: fixed; inset: 0; z-index: -2;
+      background:
+        linear-gradient(rgba(232,0,13,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232,0,13,0.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+      animation: gridDrift 60s linear infinite;
+    }
+
+    @keyframes gridDrift {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-44px, -44px); }
+    }
+
+    .ticker-wrap {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      background: rgba(6, 4, 10, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: stretch;
+      height: 44px;
+    }
+
+    .ticker-label {
+      background: var(--red);
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 0 20px;
+      display: flex; align-items: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+      box-shadow: 4px 0 20px var(--red-glow);
+    }
+
+    .ticker-track { overflow: hidden; flex: 1; display: flex; align-items: center; }
+    .ticker-list {
+      display: flex; list-style: none;
+      animation: ticker 28s linear infinite;
+      gap: 0;
+    }
+    .ticker-list li {
+      white-space: nowrap; padding: 0 40px;
+      color: var(--text-dim); font-size: 0.82rem; font-weight: 500;
+      position: relative;
+    }
+    .ticker-list li::after {
+      content: "🩸"; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+      font-size: 0.7rem;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(100vw); }
+      to { transform: translateX(-100%); }
+    }
+
+    .header {
+      position: fixed; top: 44px; left: 0; right: 0; z-index: 200;
+      background: rgba(6, 4, 10, 0.88);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-dim);
+      padding: 0 28px;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .logo { display: flex; align-items: center; gap: 12px; }
+
+    .logo-icon {
+      width: 40px; height: 40px;
+      background: var(--red);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 0 16px var(--red-glow);
+      animation: iconPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes iconPulse {
+      0%, 100% { box-shadow: 0 0 16px var(--red-glow); }
+      50% { box-shadow: 0 0 28px var(--red-glow), 0 0 48px rgba(232,0,13,0.2); }
+    }
+
+    .logo-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem; font-weight: 800;
+      background: linear-gradient(90deg, #fff 30%, var(--red) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+    }
+
+    .status-pill {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid var(--border-dim);
+      border-radius: 40px;
+      padding: 6px 14px;
+      font-size: 0.75rem; font-weight: 600; color: var(--text-dim);
+    }
+
+    .status-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    .page {
+      padding-top: 130px;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 28px;
+      max-width: 680px;
+      margin: 0 auto;
+      padding-left: 20px; padding-right: 20px;
+    }
+
+    .avatar-wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+
+    .avatar-ring { position: relative; width: 120px; height: 120px; }
+
+    .avatar-ring::before {
+      content: '';
+      position: absolute; inset: -4px;
+      border-radius: 50%;
+      background: conic-gradient(var(--red), transparent, var(--red), transparent, var(--red));
+      animation: spin 4s linear infinite;
+    }
+
+    .avatar-inner {
+      position: absolute; inset: 4px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+      box-shadow: inset 0 0 24px rgba(0,0,0,0.5);
+    }
+
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    .avatar-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem; font-weight: 900;
+      background: linear-gradient(135deg, #fff 20%, var(--red) 70%, #ff6666 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .avatar-sub { font-size: 0.85rem; color: var(--text-dim); text-align: center; letter-spacing: 1px; }
+
+    .card {
+      width: 100%;
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 0.5px rgba(255,255,255,0.03) inset;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(232,0,13,0.45);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px rgba(232,0,13,0.08);
+    }
+
+    .card-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--red-soft);
+      border: 1px solid rgba(232,0,13,0.35);
+      border-radius: 40px;
+      padding: 4px 14px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 2px;
+      color: var(--red); text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem; font-weight: 700;
+      background: linear-gradient(135deg, #fff, #FFCDD2);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+
+    .card-desc { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 24px; }
+
+    .input-row { display: flex; gap: 10px; }
+
+    .num-input {
+      flex: 1;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid var(--border-dim);
+      border-radius: 60px;
+      padding: 14px 20px;
+      font-size: 1rem; font-weight: 600;
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.25s;
+      outline: none;
+    }
+
+    .num-input::placeholder { color: var(--text-muted); font-weight: 400; }
+
+    .num-input:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px var(--red-glow), 0 0 20px rgba(232,0,13,0.1);
+      background: rgba(12, 6, 16, 0.9);
+      color: #fff;
+    }
+
+    .gen-btn {
+      background: var(--red);
+      border: none;
+      border-radius: 60px;
+      padding: 14px 22px;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.25s;
+      box-shadow: 0 4px 20px var(--red-glow);
+      position: relative; overflow: hidden;
+    }
+
+    .gen-btn:hover { transform: scale(0.97); box-shadow: 0 6px 28px var(--red-glow); }
+    .gen-btn:active { transform: scale(0.94); }
+
+    .result-box {
+      margin-top: 18px;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid var(--border-dim);
+      border-radius: 18px;
+      min-height: 72px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px;
+      transition: all 0.3s;
+    }
+
+    .result-box.has-code {
+      border-color: rgba(232,0,13,0.4);
+      background: rgba(232,0,13,0.05);
+    }
+
+    .result-placeholder { color: var(--text-muted); font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
+
+    .code-display { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .code-label { font-size: 0.75rem; font-weight: 600; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; }
+
+    .code-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.35rem; font-weight: 700;
+      color: var(--red);
+      background: rgba(232,0,13,0.1);
+      border: 1px solid rgba(232,0,13,0.3);
+      border-radius: 12px;
+      padding: 8px 18px;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px var(--red-glow);
+    }
+
+    .copy-btn {
+      display: none;
+      margin-top: 14px;
+      background: transparent;
+      border: 1px solid var(--red);
+      border-radius: 40px;
+      padding: 10px 24px;
+      color: var(--red);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover { background: var(--red); color: #fff; box-shadow: 0 0 20px var(--red-glow); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .step-item {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid var(--border-dim);
+      border-radius: 16px;
+      padding: 18px 14px;
+      text-align: center;
+      transition: all 0.25s;
+    }
+
+    .step-item:hover { border-color: var(--border); background: var(--red-soft); transform: translateY(-3px); }
+    .step-num { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--red); margin-bottom: 6px; }
+    .step-text { font-size: 0.8rem; color: var(--text-dim); line-height: 1.5; }
+
+    .info-row { display: flex; gap: 12px; }
+
+    .info-item {
+      flex: 1;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid var(--border-dim);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      transition: all 0.25s;
+    }
+
+    .info-item:hover { border-color: var(--border); transform: translateY(-2px); }
+    .info-icon { font-size: 1.3rem; margin-bottom: 6px; }
+    .info-label { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
+    .info-val { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text); margin-top: 2px; }
+
+    .footer {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.85rem; font-weight: 700;
+      background: linear-gradient(90deg, var(--red), #ff8888);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+
+    .footer-copy { font-size: 0.78rem; color: var(--text-muted); }
+
+    .socials { display: flex; justify-content: center; gap: 12px; margin-top: 16px; }
+
+    .social-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border-dim);
+      background: rgba(0,0,0,0.4);
+      color: var(--text-dim);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover { border-color: var(--red); color: var(--red); transform: translateY(-3px); box-shadow: 0 6px 16px var(--red-glow); }
+
+    .loader { display: inline-flex; gap: 5px; align-items: flex-end; }
+    .loader span { width: 4px; border-radius: 4px; background: var(--red); animation: loaderBar 0.8s ease-in-out infinite; }
+    .loader span:nth-child(1) { height: 12px; animation-delay: 0s; }
+    .loader span:nth-child(2) { height: 20px; animation-delay: 0.15s; }
+    .loader span:nth-child(3) { height: 8px; animation-delay: 0.3s; }
+    .loader span:nth-child(4) { height: 16px; animation-delay: 0.45s; }
+    .loader span:nth-child(5) { height: 10px; animation-delay: 0.6s; }
+
+    @keyframes loaderBar {
+      0%, 100% { transform: scaleY(1); opacity: 0.5; }
+      50% { transform: scaleY(1.8); opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .page > * { animation: fadeUp 0.5s ease both; }
+    .page > *:nth-child(1) { animation-delay: 0.05s; }
+    .page > *:nth-child(2) { animation-delay: 0.12s; }
+    .page > *:nth-child(3) { animation-delay: 0.19s; }
+    .page > *:nth-child(4) { animation-delay: 0.26s; }
+    .page > *:nth-child(5) { animation-delay: 0.33s; }
+
+    @media (max-width: 520px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .info-row { flex-direction: column; }
+      .input-row { flex-direction: column; }
+      .gen-btn { padding: 14px; }
+      .avatar-title { font-size: 1.5rem; }
+      .page { padding-top: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-layer"></div>
+  <div class="grid-layer"></div>
+
+  <div class="ticker-wrap">
+    <div class="ticker-label">🩸 SUKUNA XD</div>
+    <div class="ticker-track">
+      <ul class="ticker-list">
+        <li>Génère ton code de pairing instantanément</li>
+        <li>Sécurité maximale · Connexion cryptée</li>
+        <li>Communauté active · Tech & Digital</li>
+        <li>Apprendre · Progresser · Évoluer</li>
+        <li>Bots · Automatisation · Scripts puissants</li>
+      </ul>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon">🩸</div>
+      <div class="logo-name">SUKUNA XD</div>
+    </div>
+    <div class="status-pill">
+      <div class="status-dot"></div>
+      <span>ONLINE</span>
+    </div>
+  </header>
+
+  <div class="page">
+
+    <div class="avatar-wrap">
+      <div class="avatar-ring">
+        <div class="avatar-inner">🩸</div>
+      </div>
+      <div class="avatar-title">SUKUNA XD</div>
+      <div class="avatar-sub">✦ PAIR CODE GENERATOR ✦</div>
+    </div>
+
+    <div class="card">
+      <div class="card-badge"><i class="fas fa-key"></i> SYSTÈME DE PAIRING</div>
+      <div class="card-title">Génère ton Code</div>
+      <div class="card-desc">Entre ton numéro WhatsApp avec l'indicatif pays. Un code unique sera généré instantanément pour connecter ton bot.</div>
+
+      <div class="input-row">
+        <input class="num-input" type="tel" id="numInput" placeholder="+225 07 00 00 00 00" autocomplete="off" inputmode="tel">
+        <button class="gen-btn" id="genBtn" onclick="generateCode()">
+          <i class="fas fa-bolt" style="margin-right:6px;"></i>GEN
+        </button>
+      </div>
+
+      <div class="result-box" id="resultBox">
+        <div class="result-placeholder">
+          <i class="fas fa-terminal" style="color:var(--red-dark);"></i>
+          En attente d'un numéro…
+        </div>
+      </div>
+
+      <div style="text-align:center;">
+        <button class="copy-btn" id="copyBtn" onclick="copyCode()">
+          <i class="fas fa-copy" style="margin-right:6px;"></i>COPIER LE CODE
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-badge"><i class="fas fa-list-ol"></i> MODE D'EMPLOI</div>
+      <div class="card-title">Comment ça marche ?</div>
+      <div class="steps-grid" style="margin-top:16px;">
+        <div class="step-item">
+          <div class="step-num">01</div>
+          <div class="step-text">Entre ton numéro WhatsApp avec l'indicatif pays</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">02</div>
+          <div class="step-text">Clique sur GEN et copie le code affiché</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">03</div>
+          <div class="step-text">Colle le code dans WhatsApp → Appareils liés</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="info-row">
+        <div class="info-item">
+          <div class="info-icon">⚡</div>
+          <div class="info-label">Vitesse</div>
+          <div class="info-val">INSTANT</div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🔒</div>
+          <div class="info-label">Sécurité</div>
+          <div class="info-val">MAX</div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🩸</div>
+          <div class="info-label">Status</div>
+          <div class="info-val">ACTIF</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">SUKUNA XD 🩸</div>
+      <div class="footer-copy">© 2026 · Plus qu'un groupe, une évolution</div>
+      <div class="socials">
+        <a class="social-btn" href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a class="social-btn" href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
+        <a class="social-btn" href="#" title="GitHub"><i class="fab fa-github"></i></a>
+        <a class="social-btn" href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="particles-placeholder" style="position:fixed;inset:0;z-index:-1;pointer-events:none;"></div>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    let lastCode = '';
+
+    async function generateCode() {
+      const input = document.getElementById('numInput');
+      const resultBox = document.getElementById('resultBox');
+      const copyBtn = document.getElementById('copyBtn');
+      const genBtn = document.getElementById('genBtn');
+      const raw = input.value.replace(/[^0-9]/g, '');
+
+      if (!input.value.trim() || raw.length < 7) {
+        shake(resultBox);
+        resultBox.classList.remove('has-code');
+        resultBox.innerHTML = `<div class="result-placeholder" style="color:#FF6B6B;"><i class="fas fa-exclamation-triangle"></i> Entre un numéro valide !</div>`;
+        copyBtn.style.display = 'none';
+        return;
+      }
+
+      genBtn.disabled = true;
+      genBtn.innerHTML = `<div class="loader"><span></span><span></span><span></span><span></span><span></span></div>`;
+      resultBox.classList.remove('has-code');
+      resultBox.innerHTML = `<div style="display:flex;align-items:center;gap:12px;color:var(--text-dim);font-size:0.85rem;"><div class="loader"><span></span><span></span><span></span><span></span><span></span></div> Génération en cours…</div>`;
+      copyBtn.style.display = 'none';
+
+      try {
+        const response = await fetch('/api/pair', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ number: raw })
+        });
+        const data = await response.json();
+        if (!response.ok || data.error) throw new Error(data.error || 'Erreur serveur');
+
+        lastCode = data.code;
+        resultBox.classList.add('has-code');
+        resultBox.innerHTML = `
+          <div class="code-display">
+            <span class="code-label"><i class="fas fa-key" style="color:var(--red);margin-right:4px;"></i>CODE</span>
+            <span class="code-value">${data.code}</span>
+          </div>`;
+        copyBtn.style.display = 'inline-block';
+      } catch (err) {
+        shake(resultBox);
+        resultBox.classList.remove('has-code');
+        resultBox.innerHTML = `<div class="result-placeholder" style="color:#FF6B6B;"><i class="fas fa-times-circle"></i> ${err.message}</div>`;
+      } finally {
+        genBtn.disabled = false;
+        genBtn.innerHTML = `<i class="fas fa-bolt" style="margin-right:6px;"></i>GEN`;
+      }
+    }
+
+    async function copyCode() {
+      const btn = document.getElementById('copyBtn');
+      try {
+        await navigator.clipboard.writeText(lastCode);
+        btn.innerHTML = '<i class="fas fa-check" style="margin-right:6px;"></i>COPIÉ !';
+        btn.style.background = 'var(--red)';
+        btn.style.color = '#fff';
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fas fa-copy" style="margin-right:6px;"></i>COPIER LE CODE';
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 2000);
+      } catch(e) {
+        btn.innerHTML = 'Copie manuelle';
+      }
+    }
+
+    function shake(el) {
+      el.style.animation = 'none';
+      el.offsetHeight;
+      el.style.animation = 'shake 0.4s ease';
+    }
+
+    document.getElementById('numInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') generateCode();
+    });
+
+    const style = document.createElement('style');
+    style.textContent = `@keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-5px)} 80%{transform:translateX(5px)} }`;
+    document.head.appendChild(style);
+
+    particlesJS('particles-placeholder', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 900 } },
+        color: { value: ['#E8000D', '#FF4444', '#9B0009'] },
+        shape: { type: 'circle' },
+        opacity: { value: 0.4, random: true, anim: { enable: true, speed: 0.8, opacity_min: 0.1 } },
+        size: { value: 2, random: true },
+        line_linked: { enable: true, distance: 140, color: '#E8000D', opacity: 0.15, width: 1 },
+        move: { enable: true, speed: 1, random: true, out_mode: 'out' }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+        modes: { repulse: { distance: 80 }, push: { particles_nb: 3 } }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>
