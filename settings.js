@@ -3,7 +3,7 @@ const settings = {
   author: '? ???',
   botName: "𝗦𝗨𝗞𝗨𝗡𝗔 𝗫𝗗",
   botOwner: 'SUKUNA', // ton nom
-  ownerNumber: '50943014307', //Saisissez votre num茅ro ici, sans le symbole +. Indiquez simplement l'indicatif du pays et le num茅ro, sans espace.
+  ownerNumber: '50955833136', //Saisissez votre num茅ro ici, sans le symbole +. Indiquez simplement l'indicatif du pays et le num茅ro, sans espace.
   giphyApiKey: 'qnl7ssQChTdPjsKta2Ax2LMaGXz303tq',
   commandMode: "private",
   maxStoreMessages: 20, 
